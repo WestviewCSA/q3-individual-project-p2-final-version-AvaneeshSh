@@ -36,11 +36,11 @@ public class Reader {
             String rows = scan.next();
             String columns = scan.next();
             String maps = scan.next();
-            scan.nextLine(); 
+            scan.nextLine();
 
             while (scan.hasNextLine()) {
                 String temp = scan.nextLine();
-                if (!temp.matches("[.$W@|]+")) {
+                if (!temp.matches("[\\.\\$W@|]+")) {
                     System.out.println("Invalid character found");
                     return new ArrayDeque<>();
                 }
@@ -76,10 +76,14 @@ public class Reader {
                 int row = Integer.parseInt(parts[1]);
                 int col = Integer.parseInt(parts[2]);
 
+                if (row >= Integer.parseInt(rows) || col >= Integer.parseInt(columns)) {
+                    System.out.println("Coordinates don't match the given space.");
+                    return new String[0][0];
+                }
+
                 cordBased[row][col] = character;
             }
 
-            // Fill nulls with "."
             for (int i = 0; i < cordBased.length; i++) {
                 for (int j = 0; j < cordBased[0].length; j++) {
                     if (cordBased[i][j] == null) {
