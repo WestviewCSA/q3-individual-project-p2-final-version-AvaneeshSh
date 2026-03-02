@@ -1,0 +1,21 @@
+Design Plan - Wolverine's Quest for the Diamond Wolverine Coin
+Data Structure Project 1 (2025-2026)
+Due: 3/28/2026
+Name: Avaneesh Sharma
+
+
+Week 3:
+- Implement all command line switches (--Stack, --Queue, --Opt, --Time, etc.)
+- Implement and test Queue-based approach
+- Implement and test Stack-based approach
+
+Week 4:
+- Implement Optimal path (shortest path)
+- Add multi-maze support using | walkway
+- Implement text-map and coordinate-based output formats
+- Add runtime timing with --Time flag
+
+Week 5:
+- Implement 4 custom exceptions
+- Write 5 test cases
+- Clean up code, zip into p1.zip, submit
