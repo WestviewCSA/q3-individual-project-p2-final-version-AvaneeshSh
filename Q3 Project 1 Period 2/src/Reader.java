@@ -100,4 +100,18 @@ public class Reader {
 
         return null;
     }
+    
+    public static int[] findChar(String[][] grid, String target) {
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j].equals(target)) {
+                	int[] vals = new int[2];
+        			vals[0] = j;
+        			vals[1] = j;
+        			return vals;
+                }
+            }
+        }
+        return null;
+    }
 }
