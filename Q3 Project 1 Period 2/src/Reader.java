@@ -119,9 +119,6 @@ public class Reader {
         return null;
     }
 
-/*
- * 
-
     public static String[][][] getCords(String passedFile) throws IncorrectMapFormatException, IllegalMapCharacterException, IncompleteMapException {
 
         File fileObj = new File(passedFile);
@@ -158,39 +155,50 @@ public class Reader {
                 
 
                 String[] parts = line.split(" ");
+                
+                if (parts.length != 4) {
+                    throw new IncorrectMapFormatException("Each line must have 4 values: char row col maze. Got: " + line);
+                }
+               
                 String character = parts[0];
-                int row = Integer.parseInt(parts[1]);
-                int col = Integer.parseInt(parts[2]);
-
-                if (row >= Integer.parseInt(rows) || col >= Integer.parseInt(columns)) {
-                    System.out.println("Coordinates don't match the given space.");
-                    return new String[0][0];
+                int row = 0;
+                int col = 0;
+                int mazeLevel = 0;
+                try {
+                    row = Integer.parseInt(parts[1]);
+                    col = Integer.parseInt(parts[2]);
+                    mazeLevel = Integer.parseInt(parts[3]);
+                } catch (NumberFormatException e) {
+                    throw new IncorrectMapFormatException("Row, column, maze level must be integers. Got: " + line);
                 }
 
-                cordBased[row][col] = character;
-            }
-
-            for (int i = 0; i < cordBased.length; i++) {
-                for (int j = 0; j < cordBased[0].length; j++) {
-                    if (cordBased[i][j] == null) {
-                        cordBased[i][j] = ".";
-                    }
+				if (!character.matches("[.\\$W@|]")) {
+                    throw new IllegalMapCharacterException("Invalid map character: " + character + " on line: " + line);
                 }
+                if (row < 0 || row >= rows || col < 0 || col >= columns) {
+                    throw new IncompleteMapException("Coordinates out of bounds: " + line);
+				}
+                if (mazeLevel < 0 || mazeLevel >= maps) {
+                    throw new IncompleteMapException("Maze level out of bounds: " + line);
+				}
+                grid[mazeLevel][row][col] = character;
             }
 
-            return cordBased;
+            for (int m = 0; m < maps; m++)
+                for (int i = 0; i < rows; i++)
+                    for (int j = 0; j < columns; j++)
+                        if (grid[m][i][j] == null)
+                            grid[m][i][j] = ".";
+
+            return grid;
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        }
 
         return null;
     }
-    
- */
+
     
     public static int[] findChar(String[][] grid, String target) {
         for (int i = 0; i < grid.length; i++) {
