@@ -25,9 +25,6 @@ public class Reader {
             System.out.println();
             
             /*
-             * 
-             
-      
             String[][][] coor = getCords("hardMap2Coords");
             printGrid(coor);
             */
