@@ -264,7 +264,7 @@ public class Reader {
         int cols = grid[0][0].length;
 
         boolean[][][] visited = new boolean[maps][rows][cols];
-        int[][][] parent = new int[maps][rows][cols];
+        int[][][] parent      = new int[maps][rows][cols];
 
         for (int m = 0; m < maps; m++) {
             for (int r = 0; r < rows; r++) {
@@ -315,10 +315,15 @@ public class Reader {
                     if (northCell.equals("|")) {
                         stack.push(new int[]{northMaze, northRow, northCol});
                         for (int om = 0; om < maps; om++) {
-                            if (om != northMaze && grid[om][northRow][northCol].equals("|") && !visited[om][northRow][northCol]) {
-                                visited[om][northRow][northCol] = true;
-                                parent[om][northRow][northCol]  = m * 10000 + r * 100 + c;
-                                stack.push(new int[]{om, northRow, northCol});
+                            if (om != northMaze) {
+                                for (int wc = 0; wc < cols; wc++) {
+                                    if (grid[om][northRow][wc].equals("|") && !visited[om][northRow][wc]) {
+                                        visited[om][northRow][wc] = true;
+                                        parent[om][northRow][wc]  = m * 10000 + r * 100 + c;
+                                        stack.push(new int[]{om, northRow, wc});
+                                        break;
+                                    }
+                                }
                                 break;
                             }
                         }
@@ -357,10 +362,15 @@ public class Reader {
                     if (southCell.equals("|")) {
                         stack.push(new int[]{southMaze, southRow, southCol});
                         for (int om = 0; om < maps; om++) {
-                            if (om != southMaze && grid[om][southRow][southCol].equals("|") && !visited[om][southRow][southCol]) {
-                                visited[om][southRow][southCol] = true;
-                                parent[om][southRow][southCol]  = m * 10000 + r * 100 + c;
-                                stack.push(new int[]{om, southRow, southCol});
+                            if (om != southMaze) {
+                                for (int wc = 0; wc < cols; wc++) {
+                                    if (grid[om][southRow][wc].equals("|") && !visited[om][southRow][wc]) {
+                                        visited[om][southRow][wc] = true;
+                                        parent[om][southRow][wc]  = m * 10000 + r * 100 + c;
+                                        stack.push(new int[]{om, southRow, wc});
+                                        break;
+                                    }
+                                }
                                 break;
                             }
                         }
@@ -399,10 +409,15 @@ public class Reader {
                     if (eastCell.equals("|")) {
                         stack.push(new int[]{eastMaze, eastRow, eastCol});
                         for (int om = 0; om < maps; om++) {
-                            if (om != eastMaze && grid[om][eastRow][eastCol].equals("|") && !visited[om][eastRow][eastCol]) {
-                                visited[om][eastRow][eastCol] = true;
-                                parent[om][eastRow][eastCol]  = m * 10000 + r * 100 + c;
-                                stack.push(new int[]{om, eastRow, eastCol});
+                            if (om != eastMaze) {
+                                for (int wc = 0; wc < cols; wc++) {
+                                    if (grid[om][eastRow][wc].equals("|") && !visited[om][eastRow][wc]) {
+                                        visited[om][eastRow][wc] = true;
+                                        parent[om][eastRow][wc]  = m * 10000 + r * 100 + c;
+                                        stack.push(new int[]{om, eastRow, wc});
+                                        break;
+                                    }
+                                }
                                 break;
                             }
                         }
@@ -441,10 +456,15 @@ public class Reader {
                     if (westCell.equals("|")) {
                         stack.push(new int[]{westMaze, westRow, westCol});
                         for (int om = 0; om < maps; om++) {
-                            if (om != westMaze && grid[om][westRow][westCol].equals("|") && !visited[om][westRow][westCol]) {
-                                visited[om][westRow][westCol] = true;
-                                parent[om][westRow][westCol]  = m * 10000 + r * 100 + c;
-                                stack.push(new int[]{om, westRow, westCol});
+                            if (om != westMaze) {
+                                for (int wc = 0; wc < cols; wc++) {
+                                    if (grid[om][westRow][wc].equals("|") && !visited[om][westRow][wc]) {
+                                        visited[om][westRow][wc] = true;
+                                        parent[om][westRow][wc]  = m * 10000 + r * 100 + c;
+                                        stack.push(new int[]{om, westRow, wc});
+                                        break;
+                                    }
+                                }
                                 break;
                             }
                         }
