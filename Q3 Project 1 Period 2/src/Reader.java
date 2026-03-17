@@ -9,7 +9,7 @@ public class Reader {
     public static void main(String[] args) {
 
     	try {
-            String[][][] map = getText("MediumMap3");
+            String[][][] map = getText("HardMap2");
             for (int m = 0; m < map.length; m++) {
                 System.out.println("--- Maze " + m + " ---");
                 for (int i = 0; i < map[m].length; i++) {
@@ -21,7 +21,9 @@ public class Reader {
             }
 
             System.out.println();
-
+            /*
+             * 
+             
             String[][][] coor = getCords("easyMap2 Coordinates");
             for (int m = 0; m < coor.length; m++) {
                 System.out.println("--- Maze " + m + " ---");
@@ -32,7 +34,7 @@ public class Reader {
                     System.out.println();
                 }
             }
-            
+            */
             System.out.println("\n=== Stack Result ===");
             String[][][] stackGrid = copyGrid(map);
             boolean stackSolved = solveStack(stackGrid);
@@ -264,7 +266,7 @@ public class Reader {
         int cols = grid[0][0].length;
 
         boolean[][][] visited = new boolean[maps][rows][cols];
-        int[][][] parent      = new int[maps][rows][cols];
+        int[][][] parent = new int[maps][rows][cols];
 
         for (int m = 0; m < maps; m++) {
             for (int r = 0; r < rows; r++) {
