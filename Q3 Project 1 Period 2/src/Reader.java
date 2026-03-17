@@ -13,28 +13,13 @@ public class Reader {
     		
     		 
             String[][][] map = getText("HardMap2");
-            for (int m = 0; m < map.length; m++) {
-                System.out.println("--- Maze " + m + " ---");
-                for (int i = 0; i < map[m].length; i++) {
-                    for (int j = 0; j < map[m][0].length; j++) {
-                        System.out.print(map[m][i][j]);
-                    }
-                    System.out.println();
-                }
-            }
+            printGrid(map);
             
             System.out.println("\n=== Queue Result ===");
             String[][][] QueueGrid = copyGrid(map);
             boolean QueueSolved = solveQueue(QueueGrid);
             if (QueueSolved) {
-                for (int m = 0; m < QueueGrid.length; m++) {
-                    for (int i = 0; i < QueueGrid[m].length; i++) {
-                        for (int j = 0; j < QueueGrid[m][0].length; j++) {
-                            System.out.print(QueueGrid[m][i][j]);
-                        }
-                        System.out.println();
-                    }
-                }
+                printGrid(QueueGrid);
             }
 
             System.out.println();
@@ -44,28 +29,13 @@ public class Reader {
              
       
             String[][][] coor = getCords("hardMap2Coords");
-            for (int m = 0; m < coor.length; m++) {
-                System.out.println("--- Maze " + m + " ---");
-                for (int i = 0; i < coor[m].length; i++) {
-                    for (int j = 0; j < coor[m][0].length; j++) {
-                        System.out.print(coor[m][i][j]);
-                    }
-                    System.out.println();
-                }
-            }
+            printGrid(coor);
             */
             System.out.println("\n=== Stack Result ===");
             String[][][] stackGrid = copyGrid(map);
             boolean stackSolved = solveStack(stackGrid);
             if (stackSolved) {
-                for (int m = 0; m < stackGrid.length; m++) {
-                    for (int i = 0; i < stackGrid[m].length; i++) {
-                        for (int j = 0; j < stackGrid[m][0].length; j++) {
-                            System.out.print(stackGrid[m][i][j]);
-                        }
-                        System.out.println();
-                    }
-                }
+            	printGrid(stackGrid);
             }
             
 
@@ -262,13 +232,16 @@ public class Reader {
         return copy;
     }
 
-    public static void printGrid(String[][][] grid) {
-        for (int m = 0; m < grid.length; m++)
-            for (int r = 0; r < grid[m].length; r++) {
-                for (int c = 0; c < grid[m][0].length; c++)
-                    System.out.print(grid[m][r][c]);
+    public static void printGrid(String[][][] map) {
+        for (int m = 0; m < map.length; m++) {
+            System.out.println("--- Maze " + m + " ---");
+            for (int i = 0; i < map[m].length; i++) {
+                for (int j = 0; j < map[m][0].length; j++) {
+                    System.out.print(map[m][i][j]);
+                }
                 System.out.println();
             }
+        }
     }
     
     public static boolean solveStack(String[][][] grid) {
