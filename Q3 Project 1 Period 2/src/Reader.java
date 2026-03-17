@@ -9,7 +9,7 @@ public class Reader {
     public static void main(String[] args) {
 
     	try {
-            String[][][] map = getText("HardMap2");
+            String[][][] map = getText("HardMap1");
             for (int m = 0; m < map.length; m++) {
                 System.out.println("--- Maze " + m + " ---");
                 for (int i = 0; i < map[m].length; i++) {
@@ -319,7 +319,7 @@ public class Reader {
                         for (int om = 0; om < maps; om++) {
                             if (om != northMaze) {
                                 for (int wc = 0; wc < cols; wc++) {
-                                    if (grid[om][northRow][wc].equals("|") && !visited[om][northRow][wc]) {
+                                    if (grid[om][northRow][wc].equals("W") && !visited[om][northRow][wc]) {
                                         visited[om][northRow][wc] = true;
                                         parent[om][northRow][wc]  = m * 10000 + r * 100 + c;
                                         stack.push(new int[]{om, northRow, wc});
@@ -366,7 +366,7 @@ public class Reader {
                         for (int om = 0; om < maps; om++) {
                             if (om != southMaze) {
                                 for (int wc = 0; wc < cols; wc++) {
-                                    if (grid[om][southRow][wc].equals("|") && !visited[om][southRow][wc]) {
+                                    if (grid[om][southRow][wc].equals("W") && !visited[om][southRow][wc]) {
                                         visited[om][southRow][wc] = true;
                                         parent[om][southRow][wc]  = m * 10000 + r * 100 + c;
                                         stack.push(new int[]{om, southRow, wc});
@@ -413,7 +413,7 @@ public class Reader {
                         for (int om = 0; om < maps; om++) {
                             if (om != eastMaze) {
                                 for (int wc = 0; wc < cols; wc++) {
-                                    if (grid[om][eastRow][wc].equals("|") && !visited[om][eastRow][wc]) {
+                                    if (grid[om][eastRow][wc].equals("W") && !visited[om][eastRow][wc]) {
                                         visited[om][eastRow][wc] = true;
                                         parent[om][eastRow][wc]  = m * 10000 + r * 100 + c;
                                         stack.push(new int[]{om, eastRow, wc});
@@ -460,7 +460,7 @@ public class Reader {
                         for (int om = 0; om < maps; om++) {
                             if (om != westMaze) {
                                 for (int wc = 0; wc < cols; wc++) {
-                                    if (grid[om][westRow][wc].equals("|") && !visited[om][westRow][wc]) {
+                                    if (grid[om][westRow][wc].equals("W") && !visited[om][westRow][wc]) {
                                         visited[om][westRow][wc] = true;
                                         parent[om][westRow][wc]  = m * 10000 + r * 100 + c;
                                         stack.push(new int[]{om, westRow, wc});
