@@ -12,7 +12,7 @@ public class Reader {
     	try {
     		
     		 
-            String[][][] map = getText("HardMap1");
+            String[][][] map = getText("HardMap4");
             printGrid(map);
             
             System.out.println("\n=== Queue Result ===");
@@ -25,7 +25,7 @@ public class Reader {
             System.out.println();
             
             /*
-            String[][][] coor = getCords("hardMap2Coords");
+            String[][][] coor = getCrds("hardMap2Coords");
             printGrid(coor);
             */
             System.out.println("\n=== Stack Result ===");
@@ -33,6 +33,13 @@ public class Reader {
             boolean stackSolved = SolveStack.solve(stackGrid);
             if (stackSolved) {
             	printGrid(stackGrid);
+            }
+            
+            System.out.println("\n=== Optimal Result ===");
+            String[][][] optGrid = Reader.copyGrid(map);
+            boolean optSolved = SolveOptimal.solve(optGrid);
+            if (optSolved) {
+                Reader.printGrid(optGrid);
             }
             
 
