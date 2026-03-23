@@ -23,10 +23,10 @@ public class p1 {
                 useOpt = true;
             } else if (args[i].equals("--Time")) {
                 useTime = true;
-            } else if (args[i].equals("--Incoordinate")) {
-                inCoordinate = true;
-            } else if (args[i].equals("--OutCoordinate")) {
+            } else if (args[i].equals("--OutCoordinate") || args[i].equals("--Outcoordinate")) {
                 outCoordinate = true;
+            } else if (args[i].equals("--Incoordinate") || args[i].equals("--InCoordinate")) {
+                inCoordinate = true;
             } else if (args[i].equals("--Help")) {
                 System.out.println("This program navigates Wolverine through a maze to find the Diamond Wolverine Buck.");
                 System.out.println("--Stack         Use stack-based approach");
