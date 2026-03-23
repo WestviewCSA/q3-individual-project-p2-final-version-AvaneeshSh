@@ -8,8 +8,10 @@ import java.util.Scanner;
 public class Reader {
 
     public static void main(String[] args) {
-
-    	try {
+    
+    
+/*
+ * try {
     		
     		 
             String[][][] map = getText("HardMap4");
@@ -24,10 +26,10 @@ public class Reader {
 
             System.out.println();
             
-            /*
+            
             String[][][] coor = getCrds("hardMap2Coords");
             printGrid(coor);
-            */
+            
             System.out.println("\n=== Stack Result ===");
             String[][][] stackGrid = copyGrid(map);
             boolean stackSolved = SolveStack.solve(stackGrid);
@@ -51,6 +53,12 @@ public class Reader {
             System.out.println("Incomplete map: " + e.getMessage());
         }
     }
+ * 
+ * 
+ */
+    
+	}
+    	
 
     public static String[][][] getText(String passedFile) throws IncorrectMapFormatException, IllegalMapCharacterException, IncompleteMapException {
 

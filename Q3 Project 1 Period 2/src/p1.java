@@ -29,9 +29,9 @@ public class p1 {
                 outCoordinate = true;
             } else if (args[i].equals("--Help")) {
                 System.out.println("This program navigates Wolverine through a maze to find the Diamond Wolverine Buck.");
-                System.out.println("--Stack         Use stack-based (DFS) approach");
-                System.out.println("--Queue         Use queue-based (BFS) approach");
-                System.out.println("--Opt           Use optimal (shortest) path approach");
+                System.out.println("--Stack         Use stack-based approach");
+                System.out.println("--Queue         Use queue-based approach");
+                System.out.println("--Opt           Use optimal path approach");
                 System.out.println("--Time          Print the runtime of the search");
                 System.out.println("--Incoordinate  Input file is in coordinate format");
                 System.out.println("--OutCoordinate Output in coordinate format");
